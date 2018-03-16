@@ -17,13 +17,13 @@ public class SwitchAnim : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D col){
-		if(col.tag == "Player"){
+		if(col.tag == "Player" || col.tag == "Enemy"){
 			animator.SetBool("pushing", true);
 		}
 	}
 
 	void OnTriggerExit2D(Collider2D col){
-		if(col.tag == "Player"){
+		if(col.tag == "Player" || col.tag == "Enemy"){
 			animator.SetBool("pushing", false);
 		}
 	}
