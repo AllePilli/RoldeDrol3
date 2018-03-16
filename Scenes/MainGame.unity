@@ -383,6 +383,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 741741471}
+  ball: {fileID: 414634506}
 --- !u!58 &414634510
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -397,7 +398,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 2.1
+  m_Radius: 2.3
 --- !u!1 &558785069
 GameObject:
   m_ObjectHideFlags: 0
@@ -516,7 +517,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a339060098842cf41bce7a4b7c5ee759, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 6
+  maxSpeed: 4
 --- !u!61 &741741469
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -529,7 +530,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.42}
+  m_Offset: {x: 0.23, y: 0.42}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -635,7 +636,7 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -1.27}
+  m_Offset: {x: 0.19, y: -1.27}
   serializedVersion: 2
   m_Radius: 0.5
 --- !u!1 &826188585
@@ -757,6 +758,7 @@ GameObject:
   - component: {fileID: 865792813}
   - component: {fileID: 865792812}
   - component: {fileID: 865792816}
+  - component: {fileID: 865792817}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -788,21 +790,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 165e3f642c2ed304e87058138cd722be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 741741470}
-  percentage: 1.5
+  speed: 6
 --- !u!61 &865792813
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 865792810}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.18999994, y: 0.8691597}
+  m_Offset: {x: 0.18999994, y: 1.04}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -896,6 +897,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!70 &865792817
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 865792810}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 1.04, y: 1.11}
+  m_Size: {x: 1.96, y: 4}
+  m_Direction: 0
 --- !u!1 &986267977
 GameObject:
   m_ObjectHideFlags: 0
@@ -2041,7 +2057,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 2.1
+  m_Radius: 2.2
 --- !u!114 &1906362496
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2053,7 +2069,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0559a5387e58a1443a9ebc2d80ef9750, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
+  animator: {fileID: 865792814}
+  ball: {fileID: 1906362497}
 --- !u!50 &1906362497
 Rigidbody2D:
   serializedVersion: 4

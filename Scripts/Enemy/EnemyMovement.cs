@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour {
 
-	public Rigidbody2D player;
+	public float speed;
+
 	private Rigidbody2D enemyBody;
 	private Animator animator;
-
-	[SerializeField]
-	private float percentage;
 
 	// Use this for initialization
 	void Start () {
@@ -19,12 +17,7 @@ public class EnemyMovement : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		HandleMovement();
-	}
-
-	void HandleMovement(){
-		float vel = player.velocity.x * percentage;
-		enemyBody.velocity = new Vector2(vel, enemyBody.velocity.y);
-		animator.SetFloat("speed", Mathf.Abs(vel));
+		enemyBody.velocity = new Vector2(speed, enemyBody.velocity.y);
+		animator.SetFloat("speed", Mathf.Abs(speed));
 	}
 }

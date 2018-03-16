@@ -7,9 +7,10 @@ using UnityEngine;
 public class SwitchAnim : MonoBehaviour {
 
 	public Animator animator;
+	public Rigidbody2D ball;
 
 	void start(){
-
+		//ball = GetComponent<Rigidbody2D>();
 	}
 
 	void update(){
@@ -25,6 +26,7 @@ public class SwitchAnim : MonoBehaviour {
 	void OnTriggerExit2D(Collider2D col){
 		if(col.tag == "Player" || col.tag == "Enemy"){
 			animator.SetBool("pushing", false);
+            //ball.velocity = new Vector2(0, 0);
 		}
 	}
 }
