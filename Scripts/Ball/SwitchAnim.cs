@@ -9,22 +9,14 @@ public class SwitchAnim : MonoBehaviour {
 	public Animator animator;
 	public Rigidbody2D ball;
 
-	void start(){
-		//ball = GetComponent<Rigidbody2D>();
-	}
-
-	void update(){
-
-	}
-
 	void OnTriggerEnter2D(Collider2D col){
-		if(col.tag == "Player" || col.tag == "Enemy"){
+		if(col.tag == "Enemy" || col.tag == "Player"){
 			animator.SetBool("pushing", true);
 		}
 	}
 
 	void OnTriggerExit2D(Collider2D col){
-		if(col.tag == "Player" || col.tag == "Enemy"){
+		if(col.tag == "Enemy" || col.tag == "Player"){
 			animator.SetBool("pushing", false);
             //ball.velocity = new Vector2(0, 0);
 		}
