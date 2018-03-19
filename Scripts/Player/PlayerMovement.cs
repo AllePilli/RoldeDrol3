@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour {
 	[SerializeField]
 	private float maxSpeed;
 
-	public bool finished;
+	public bool finished, frozen;
 
 	//Met Arduino
 	//private SerialPort sp = new SerialPort("COM5", 9600);
@@ -45,7 +45,7 @@ public class PlayerMovement : MonoBehaviour {
 	}
 
 	private void HandleMovement(float input){
-		if(!finished){
+		if(!finished && !frozen){
 			if (input > 0) {
 				playerBody.velocity = new Vector2(input * maxSpeed, playerBody.velocity.y);
 			}

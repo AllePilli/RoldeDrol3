@@ -6,8 +6,10 @@ public class StartBehaviour : MonoBehaviour {
 
 	public GameObject countdown;
 
-	void Start () {
+	private bool firstTime;
 
+	void Start () {
+		firstTime = true;
 	}
 
 	void Update () {
@@ -15,6 +17,9 @@ public class StartBehaviour : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D col){
-		countdown.GetComponent<CountdownBehaviour>().StartAnimation();
+		if(col.tag == "Player" && firstTime){
+			countdown.GetComponent<CountdownBehaviour>().StartAnimation();
+			firstTime = false;
+		}
 	}
 }
