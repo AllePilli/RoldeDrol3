@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour {
 
 	public float speed;
+	public bool finished;
 
 	private Rigidbody2D enemyBody;
 	private Animator animator;
@@ -17,7 +18,12 @@ public class EnemyMovement : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		enemyBody.velocity = new Vector2(speed, enemyBody.velocity.y);
-		animator.SetFloat("speed", Mathf.Abs(speed));
+		if(!finished){
+			enemyBody.velocity = new Vector2(speed, enemyBody.velocity.y);
+			animator.SetFloat("speed", Mathf.Abs(speed));
+		}else{
+			enemyBody.velocity = new Vector2(0f, 0f);
+			animator.SetFloat("speed", 0f);
+		}
 	}
 }

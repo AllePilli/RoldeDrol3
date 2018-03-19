@@ -7,11 +7,12 @@ public class PlayerMovement : MonoBehaviour {
 
 	private Rigidbody2D playerBody;
 	private Animator animator;
-
 	private float arduinoInput;
 
 	[SerializeField]
 	private float maxSpeed;
+
+	public bool finished;
 
 	//Met Arduino
 	//private SerialPort sp = new SerialPort("COM5", 9600);
@@ -44,10 +45,15 @@ public class PlayerMovement : MonoBehaviour {
 	}
 
 	private void HandleMovement(float input){
-		if (input > 0) {
-			playerBody.velocity = new Vector2(input * maxSpeed, playerBody.velocity.y);
-		}
+		if(!finished){
+			if (input > 0) {
+				playerBody.velocity = new Vector2(input * maxSpeed, playerBody.velocity.y);
+			}
 
-		animator.SetFloat("speed", Mathf.Abs(input));
+			animator.SetFloat("speed", Mathf.Abs(input));
+		}else{
+			playerBody.velocity = new Vector2(0f, 0f);
+			animator.SetFloat("speed", 0f);
+		}
 	}
 }
