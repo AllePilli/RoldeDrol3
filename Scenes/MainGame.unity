@@ -389,7 +389,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -3.07, y: -1.2303245}
+  m_Offset: {x: 0.24, y: -1.2303245}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -491,7 +491,7 @@ GameObject:
   - component: {fileID: 414634510}
   m_Layer: 0
   m_Name: ball
-  m_TagString: Untagged
+  m_TagString: PlayerBall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -685,7 +685,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -3.08, y: -1.2278358}
+  m_Offset: {x: 0.23, y: -1.2278358}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1314,7 +1314,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 866976390}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.3703617, y: 0.4728911, z: 0.019604547}
+  m_LocalPosition: {x: 0.39, y: 0.4728911, z: 0.019604547}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 31871005}
@@ -1559,9 +1559,24 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 7.98, y: -1.7199999}
-      - {x: 7.97, y: -1.7099999}
-      - {x: 7.64, y: -1.6999999}
+    - - {x: 9.700615, y: -1.7498704}
+      - {x: 9.267168, y: -1.7509502}
+      - {x: 8.952593, y: -1.7143447}
+      - {x: 8.903114, y: -1.7170709}
+      - {x: 8.837078, y: -1.7116578}
+      - {x: 8.636105, y: -1.7085475}
+      - {x: 8.550043, y: -1.7116731}
+      - {x: 8.247488, y: -1.6992526}
+      - {x: 8.0457, y: -1.6914864}
+      - {x: 7.966873, y: -1.6741958}
+      - {x: 7.870144, y: -1.6773274}
+      - {x: 7.845257, y: -1.6750852}
+      - {x: 7.8187675, y: -1.6802919}
+      - {x: 7.7926273, y: -1.6798726}
+      - {x: 7.766485, y: -1.683559}
+      - {x: 7.7550316, y: -1.6835588}
+      - {x: 7.733656, y: -1.6948944}
+      - {x: 7.65217, y: -1.6856816}
       - {x: 7.58, y: -1.68}
       - {x: 7, y: -1.67}
       - {x: 6.7999997, y: -1.62}
@@ -1638,7 +1653,7 @@ PolygonCollider2D:
       - {x: -10, y: -1.74}
       - {x: -10, y: -2.5}
       - {x: 10, y: -2.5}
-      - {x: 10, y: -1.7199999}
+      - {x: 10, y: -1.7558068}
 --- !u!212 &986267980
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2086,7 +2101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target_a: {fileID: 865792811}
-  offset_a: {x: 11.56, y: 3, z: -10}
+  offset_a: {x: 10.99, y: 3, z: -10}
 --- !u!81 &1230236562
 AudioListener:
   m_ObjectHideFlags: 0
@@ -3314,7 +3329,7 @@ GameObject:
   - component: {fileID: 1906362500}
   m_Layer: 0
   m_Name: ball
-  m_TagString: Untagged
+  m_TagString: EnemyBall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

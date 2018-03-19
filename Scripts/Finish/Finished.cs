@@ -7,9 +7,9 @@ public class Finished : MonoBehaviour {
 	public GameObject body, ball;
 
 	void OnTriggerEnter2D(Collider2D col){
-		if(col.tag == "Player"){
+		if(col.tag == "PlayerBall"){
 			body.GetComponent<PlayerMovement>().finished = true;
-		}else if(col.tag == "Enemy"){
+		}else if(col.tag == "EnemyBall"){
 			body.GetComponent<EnemyMovement>().finished = true;
 		}
 
