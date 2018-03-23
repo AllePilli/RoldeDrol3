@@ -568,7 +568,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 5
-  m_LinearDrag: 0
+  m_LinearDrag: 0.7
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
@@ -937,8 +937,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 5
+  resetTime: 15
   finished: 0
   frozen: 0
+  started: 0
 --- !u!61 &741741469
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2148,7 +2150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target_a: {fileID: 865792811}
-  offset_a: {x: 10.99, y: 3, z: -10}
+  offset_a: {x: 10.99, y: 0.7, z: -10}
 --- !u!81 &1230236562
 AudioListener:
   m_ObjectHideFlags: 0
@@ -3607,7 +3609,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target_a: {fileID: 741741467}
-  offset_a: {x: 10, y: 2.3, z: -10}
+  offset_a: {x: 10, y: 0.7, z: -10}
 --- !u!1 &1957226775
 GameObject:
   m_ObjectHideFlags: 0

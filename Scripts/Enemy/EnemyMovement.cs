@@ -9,11 +9,14 @@ public class EnemyMovement : MonoBehaviour {
 
 	private Rigidbody2D enemyBody;
 	private Animator animator;
+	private Vector2 initialPosition;
 
 	// Use this for initialization
 	void Start () {
 		enemyBody = GetComponent<Rigidbody2D>();
 		animator = GetComponent<Animator>();
+
+		initialPosition = enemyBody.position;
 	}
 
 	// Update is called once per frame
@@ -26,4 +29,11 @@ public class EnemyMovement : MonoBehaviour {
 			animator.SetFloat("speed", 0f);
 		}
 	}
+
+	/*public void Reset(){
+		started = false;
+		finished = false;
+
+		enemyBody.position = initialPosition;
+	}*/
 }
