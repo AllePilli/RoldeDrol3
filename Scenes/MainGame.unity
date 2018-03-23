@@ -430,11 +430,41 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+  - name: AchtergrondMuziek
+    clip: {fileID: 8300000, guid: 7c941fab1e62da444a3818d51289bd28, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Countdown
+    clip: {fileID: 8300000, guid: 75eb8e9ea3993af43b6476f17a959da1, type: 3}
+    volume: 1
+    pitch: 1
     loop: 0
+    source: {fileID: 0}
+  - name: Finish
+    clip: {fileID: 8300000, guid: 87d36815efa868942842253d40379bda, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: PlayerRoll
+    clip: {fileID: 8300000, guid: 22305394da0675e4abfd1e42b84a60a5, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Welkom
+    clip: {fileID: 8300000, guid: 326dc7be94c3552428547862d0288f44, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: EnemyRoll
+    clip: {fileID: 8300000, guid: 22305394da0675e4abfd1e42b84a60a5, type: 3}
+    volume: 0.6
+    pitch: 1
+    loop: 1
     source: {fileID: 0}
 --- !u!4 &348270254
 Transform:
@@ -1218,6 +1248,7 @@ MonoBehaviour:
   speed: 6
   finished: 0
   started: 0
+  firstTime: 0
 --- !u!61 &865792813
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3707,6 +3738,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 741741466}
   enemy: {fileID: 865792810}
+  camera: {fileID: 1946989760}
 --- !u!95 &2112544133
 Animator:
   serializedVersion: 3
@@ -3775,8 +3807,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2112544131}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.2, y: 26.8, z: 0}
-  m_LocalScale: {x: 1.602358, y: 1.6023586, z: 1.6023586}
+  m_LocalPosition: {x: 5.4657, y: 27.017, z: 0}
+  m_LocalScale: {x: 1.7438209, y: 1.7438219, z: 1.7438219}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2

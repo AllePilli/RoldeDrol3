@@ -5,16 +5,18 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour {
 
 	public float speed;
-	public bool finished, started;
+	public bool finished, started, firstTime;
 
 	private Rigidbody2D enemyBody;
 	private Animator animator;
 	private Vector2 initialPosition;
+	private AudioManager audioManager;
 
 	// Use this for initialization
 	void Start () {
 		enemyBody = GetComponent<Rigidbody2D>();
 		animator = GetComponent<Animator>();
+		audioManager = FindObjectOfType<AudioManager>();
 
 		initialPosition = enemyBody.position;
 	}
@@ -28,12 +30,10 @@ public class EnemyMovement : MonoBehaviour {
 			enemyBody.velocity = new Vector2(0f, 0f);
 			animator.SetFloat("speed", 0f);
 		}
+
+		if(finished && !firstTime){
+			audioManager.Play("Finish");
+			firstTime = true;
+		}
 	}
-
-	/*public void Reset(){
-		started = false;
-		finished = false;
-
-		enemyBody.position = initialPosition;
-	}*/
 }
