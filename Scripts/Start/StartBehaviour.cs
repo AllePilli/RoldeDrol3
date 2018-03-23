@@ -19,6 +19,7 @@ public class StartBehaviour : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D col){
 		if(col.tag == "Player" && firstTime){
 			countdown.GetComponent<CountdownBehaviour>().StartAnimation();
+			FindObjectOfType<AudioManager>().Play("Countdown");
 			firstTime = false;
 		}
 	}

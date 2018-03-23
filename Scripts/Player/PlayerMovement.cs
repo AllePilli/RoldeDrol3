@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour {
 	private float arduinoInput;
 	private Vector2 initialPosition;
 	private Timer timer;
+	private AudioManager audioManager;
 
 	[SerializeField]
 	private float maxSpeed, resetTime;
@@ -24,6 +25,7 @@ public class PlayerMovement : MonoBehaviour {
 		playerBody = GetComponent<Rigidbody2D>();
 		animator = GetComponent<Animator>();
 		timer = new Timer(resetTime);
+		audioManager = FindObjectOfType<AudioManager>();
 
 		initialPosition = playerBody.position;
 
@@ -45,7 +47,7 @@ public class PlayerMovement : MonoBehaviour {
 			playerBody.velocity = new Vector2(arduinoInput * maxSpeed, playerBody.velocity.y);
 		}*/
 
-		if(started || (Comparison.TolerantEquals(playerBody.velocity.x, 0) || finished)){
+		if(started && (Comparison.TolerantEquals(playerBody.velocity.x, 0) || finished)){
 			timer.Update();
 
 			if(timer.Done()){
@@ -72,11 +74,4 @@ public class PlayerMovement : MonoBehaviour {
 			animator.SetFloat("speed", 0f);
 		}
 	}
-
-	/*public void Reset(){
-		finished = false;
-		frozen = false;
-
-		playerBody.position = initialPosition;
-	}*/
 }
