@@ -12,7 +12,6 @@ public class PlayerMovement : MonoBehaviour {
 	private Vector2 initialPosition;
 	private Timer timer;
 	private AudioManager audioManager;
-	//private SerialPort sp;
 
 	[SerializeField]
 	private float maxSpeed, resetTime;
@@ -22,9 +21,8 @@ public class PlayerMovement : MonoBehaviour {
 	public bool DEMO = false;
 	public bool serialClosed;
 
-	//Met Arduino
-	private SerialPort sp = new SerialPort("COM4", 9600);
-	//private SerialPort sp = new SerialPort("COM5", 9600);
+	/*Met Arduino
+	private SerialPort sp = new SerialPort("COM4", 9600);*/
 
 
 	void Start () {
@@ -36,30 +34,13 @@ public class PlayerMovement : MonoBehaviour {
 		initialPosition = playerBody.position;
 
 		/*Met Arduino
-		if(!DEMO){
-			sp = new SerialPort("COM4", 9600);
-			sp.Open();
-			sp.ReadTimeout = 1;
-		}*/
-
 		sp.Open();
-		sp.ReadTimeout = 55;// 1
+		sp.ReadTimeout = 35;*/
 	}
 
 	// Update is called once per frame
 	void Update () {
 		/*Met Arduino
-		if(!DEMO){
-			if(sp.IsOpen){
-				try {
-					//arduinoInput = sp.ReadByte();
-					arduinoInput = sp.ReadLine();
-				}catch (System.Exception) {
-					throw;
-				}
-			}
-		}*/
-
 		if(sp.IsOpen){
 			try {
 				//arduinoInput = sp.ReadByte();
@@ -71,6 +52,13 @@ public class PlayerMovement : MonoBehaviour {
 			serialClosed = true;
 		}
 
+
+		prevInput = arduinoInput;
+		HandleMovement(float.Parse(arduinoInput));*/
+
+		float input = Input.GetAxis("Horizontal");
+		HandleMovement(input);
+
 		if(started && (Comparison.TolerantEquals(playerBody.velocity.x, 0) || finished)){
 			timer.Update();
 
@@ -80,15 +68,6 @@ public class PlayerMovement : MonoBehaviour {
 		}else{
 			timer.Reset();
 		}
-
-		/*if(DEMO){
-			input = Input.GetAxis("Horizontal");
-			HandleMovement(input);
-		}else{
-			HandleMovement(float.Parse(arduinoInput));
-		}*/
-		prevInput = arduinoInput;
-		HandleMovement(float.Parse(arduinoInput));
 	}
 
 	private void HandleMovement(float f){
