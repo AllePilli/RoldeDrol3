@@ -21,8 +21,8 @@ public class PlayerMovement : MonoBehaviour {
 	public bool DEMO = false;
 	public bool serialClosed;
 
-	/*Met Arduino
-	private SerialPort sp = new SerialPort("COM4", 9600);*/
+	/*Met Arduino*/
+	private SerialPort sp = new SerialPort("COM4", 9600);
 
 
 	void Start () {
@@ -33,14 +33,14 @@ public class PlayerMovement : MonoBehaviour {
 
 		initialPosition = playerBody.position;
 
-		/*Met Arduino
+		/*Met Arduino*/
 		sp.Open();
-		sp.ReadTimeout = 35;*/
+		sp.ReadTimeout = 35;
 	}
 
 	// Update is called once per frame
 	void Update () {
-		/*Met Arduino
+		/*Met Arduino*/
 		if(sp.IsOpen){
 			try {
 				//arduinoInput = sp.ReadByte();
@@ -54,10 +54,10 @@ public class PlayerMovement : MonoBehaviour {
 
 
 		prevInput = arduinoInput;
-		HandleMovement(float.Parse(arduinoInput));*/
+		HandleMovement(float.Parse(arduinoInput));
 
-		float input = Input.GetAxis("Horizontal");
-		HandleMovement(input);
+		/*float input = Input.GetAxis("Horizontal");
+		HandleMovement(input);*/
 
 		if(started && (Comparison.TolerantEquals(playerBody.velocity.x, 0) || finished)){
 			timer.Update();
