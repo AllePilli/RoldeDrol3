@@ -23,7 +23,7 @@ public class PlayerMovement : MonoBehaviour {
 	public bool serialClosed;
 
 	//Met Arduino
-	private SerialPort sp = new SerialPort("COM7", 9600);
+	private SerialPort sp = new SerialPort("COM4", 9600);
 	//private SerialPort sp = new SerialPort("COM5", 9600);
 
 
@@ -91,13 +91,13 @@ public class PlayerMovement : MonoBehaviour {
 		HandleMovement(float.Parse(arduinoInput));
 	}
 
-	private void HandleMovement(float input){
+	private void HandleMovement(float f){
 		if(!finished && !frozen){
-			if (input > 0) {
-				playerBody.velocity = new Vector2(input * maxSpeed, playerBody.velocity.y);
+			if (f > 0) {
+				playerBody.velocity = new Vector2(f * maxSpeed, playerBody.velocity.y);
 			}
 
-			animator.SetFloat("speed", Mathf.Abs(input));
+			animator.SetFloat("speed", Mathf.Abs(f));
 		}else{
 			playerBody.velocity = new Vector2(0f, 0f);
 			animator.SetFloat("speed", 0f);
