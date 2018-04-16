@@ -1542,6 +1542,8 @@ GameObject:
   - component: {fileID: 741741473}
   - component: {fileID: 741741469}
   - component: {fileID: 741741467}
+  - component: {fileID: 741741475}
+  - component: {fileID: 741741476}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1715,6 +1717,29 @@ RectTransform:
   m_AnchoredPosition: {x: -26.04, y: -1.88}
   m_SizeDelta: {x: 5.5, y: 4}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &741741475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 741741466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08a6d1cb98e30f44dbc4db6d8d815337, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &741741476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 741741466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c21cf8969dd7d0a42a9f4accd1d447ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  COM: 
 --- !u!1 &826188585
 GameObject:
   m_ObjectHideFlags: 0
@@ -2015,10 +2040,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 165e3f642c2ed304e87058138cd722be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 6
+  minSpeed: 3.5
   finished: 0
   started: 0
   firstTime: 0
+  player: {fileID: 741741470}
 --- !u!61 &865792813
 BoxCollider2D:
   m_ObjectHideFlags: 0

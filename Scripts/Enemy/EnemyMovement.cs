@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour {
 
-	public float speed;
+	//TODO: Bangers sdf font voor alle text
+
+	public float minSpeed;
 	public bool finished, started, firstTime;
+	public Rigidbody2D player;
 
 	private Rigidbody2D enemyBody;
 	private Animator animator;
@@ -24,8 +27,15 @@ public class EnemyMovement : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if(!finished && started){
-			enemyBody.velocity = new Vector2(speed, enemyBody.velocity.y);
-			animator.SetFloat("speed", Mathf.Abs(speed));
+			float playerVel = player.velocity.x;
+
+			if(playerVel > minSpeed){
+				enemyBody.velocity = new Vector2(playerVel * 1.15f, enemyBody.velocity.y);
+				animator.SetFloat("speed", Mathf.Abs(playerVel * 1.15f));
+			}else{
+				enemyBody.velocity = new Vector2(minSpeed, enemyBody.velocity.y);
+				animator.SetFloat("speed", Mathf.Abs(minSpeed));
+			}
 		}else{
 			enemyBody.velocity = new Vector2(0f, 0f);
 			animator.SetFloat("speed", 0f);

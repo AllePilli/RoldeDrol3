@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HideMouse : MonoBehaviour {
+public class HideCursor : MonoBehaviour {
 
-	void Start () {
+	void Awake () {
 		Cursor.visible = false;
 	}
 }
