@@ -20,8 +20,4 @@ public class ImageSwitch : MonoBehaviour {
 			image.sprite = sprites[index];
 		}
 	}
-
-	public void Move(){
-		transform.position = new Vector2(658f, transform.position.y);
-	}
 }

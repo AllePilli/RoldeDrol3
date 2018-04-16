@@ -24,7 +24,7 @@ public class CountdownBehaviour : MonoBehaviour {
 		player.GetComponent<PlayerMovement>().frozen = true;
 	}
 
-	void EndAnimation(){
+	public void EndAnimation(){
 		animator.SetBool("startCountdown", false);
 		transform.position = initialPosition;
 

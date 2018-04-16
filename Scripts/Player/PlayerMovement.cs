@@ -71,7 +71,7 @@ public class PlayerMovement : MonoBehaviour {
 			timer.Reset();
 		}
 
-		if(started && firstTime){
+		if(frozen && firstTime){
 			firstTime = false;
 			Show(0);
 		}
@@ -87,7 +87,6 @@ public class PlayerMovement : MonoBehaviour {
 				}else if(time < 12){
 					Show(2);
 				}else if(time < 20){
-					// image.GetComponent<ImageSwitch>().Move();
 					Show(3);
 				}else if(time < 28){
 					Show(4);
