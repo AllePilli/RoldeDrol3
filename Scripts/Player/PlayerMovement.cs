@@ -26,10 +26,10 @@ public class PlayerMovement : MonoBehaviour {
 	public Image image;
 
 	/*Met Arduino*/
-	// private SerialPort sp;
+	private SerialPort sp;
 
 	void Start () {
-		// sp = new SerialPort(readCOM(), 9600);
+		sp = new SerialPort(readCOM(), 9600);
 
 		playerBody = GetComponent<Rigidbody2D>();
 		animator = GetComponent<Animator>();
@@ -41,28 +41,28 @@ public class PlayerMovement : MonoBehaviour {
 		initialPosition = playerBody.position;
 
 		/*Met Arduino*/
-		// sp.Open();
-		// sp.ReadTimeout = 35;
+		sp.Open();
+		sp.ReadTimeout = 35;
 	}
 
 	void Update () {
 		/*Met Arduino*/
-		// if(sp.IsOpen){
-		// 	try {
-		// 		arduinoInput = sp.ReadLine();
-		// 	}catch (System.Exception) {
-		// 		arduinoInput = prevInput;
-		// 	}
-		// }else{
-		// 	serialClosed = true;
-		// }
-		//
-		//
-		// prevInput = arduinoInput;
-		// HandleMovement(float.Parse(arduinoInput));
+		if(sp.IsOpen){
+			try {
+				arduinoInput = sp.ReadLine();
+			}catch (System.Exception) {
+				arduinoInput = prevInput;
+			}
+		}else{
+			serialClosed = true;
+		}
 
-		float input = Input.GetAxis("Horizontal");
-		HandleMovement(input);
+
+		prevInput = arduinoInput;
+		HandleMovement(float.Parse(arduinoInput));
+
+		// float input = Input.GetAxis("Horizontal");
+		// HandleMovement(input);
 
 		if(started && Comparison.TolerantEquals(playerBody.velocity.x, 0) && !finished){
 			timer.Update();

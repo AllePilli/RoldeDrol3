@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour {
 
-	//TODO: Bangers sdf font voor alle text
-
 	public float minSpeed;
 	public bool finished, started, firstTime;
 	public Rigidbody2D player;
@@ -15,7 +13,6 @@ public class EnemyMovement : MonoBehaviour {
 	private Vector2 initialPosition;
 	private AudioManager audioManager;
 
-	// Use this for initialization
 	void Start () {
 		enemyBody = GetComponent<Rigidbody2D>();
 		animator = GetComponent<Animator>();
@@ -24,7 +21,6 @@ public class EnemyMovement : MonoBehaviour {
 		initialPosition = enemyBody.position;
 	}
 
-	// Update is called once per frame
 	void Update () {
 		if(!finished && started){
 			float playerVel = player.velocity.x;

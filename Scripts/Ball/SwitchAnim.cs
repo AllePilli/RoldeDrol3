@@ -18,7 +18,6 @@ public class SwitchAnim : MonoBehaviour {
 	void OnTriggerExit2D(Collider2D col){
 		if(col.tag == "Enemy" || col.tag == "Player"){
 			animator.SetBool("pushing", false);
-            //ball.velocity = new Vector2(0, 0);
 		}
 	}
 }

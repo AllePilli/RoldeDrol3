@@ -12,10 +12,6 @@ public class StartBehaviour : MonoBehaviour {
 		firstTime = true;
 	}
 
-	void Update () {
-
-	}
-
 	void OnTriggerEnter2D(Collider2D col){
 		if(col.tag == "Player" && firstTime){
 			countdown.GetComponent<CountdownBehaviour>().StartAnimation();

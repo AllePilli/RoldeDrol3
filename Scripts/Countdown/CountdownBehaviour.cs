@@ -19,7 +19,6 @@ public class CountdownBehaviour : MonoBehaviour {
 
 	public void StartAnimation(){
 		animator.SetBool("startCountdown", true);
-		//transform.position = new Vector3(6.2f, 0f, 0f);
 		transform.position = new Vector3(camera.position.x, camera.position.y, 0f);
 		player.GetComponent<PlayerMovement>().frozen = true;
 	}
@@ -28,7 +27,6 @@ public class CountdownBehaviour : MonoBehaviour {
 		animator.SetBool("startCountdown", false);
 		transform.position = initialPosition;
 
-		//Physics2D.gravity = new Vector2(-1f, -9.81f);
 		player.GetComponent<PlayerMovement>().frozen = false;
 		player.GetComponent<PlayerMovement>().started = true;
 		enemy.GetComponent<EnemyMovement>().started = true;
