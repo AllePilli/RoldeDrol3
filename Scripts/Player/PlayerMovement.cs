@@ -45,7 +45,9 @@ public class PlayerMovement : MonoBehaviour {
 		Instantiates all data members and opens serial connection
 	*/
 	void Start () {
+		/*Met Arduino*/
 		sp = new SerialPort(readCOM(), 9600);
+		/*-----------*/
 
 		playerBody = GetComponent<Rigidbody2D>();
 		animator = GetComponent<Animator>();
@@ -123,6 +125,10 @@ public class PlayerMovement : MonoBehaviour {
 					Show(4);
 				}else if(time < 36){
 					Show(5);
+				}else if(time < 44){
+					Show(6);
+				}else if(time < 52){
+					Show(7);
 				}else{
 					SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 				}

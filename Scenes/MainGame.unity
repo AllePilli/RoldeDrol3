@@ -1501,10 +1501,10 @@ MonoBehaviour:
   finished: 0
   frozen: 0
   started: 0
+  serialClosed: 0
   input: 0
   arduinoInput: 
   prevInput: 
-  serialClosed: 0
   image: {fileID: 1702148115}
 --- !u!61 &741741469
 BoxCollider2D:
@@ -4474,8 +4474,10 @@ MonoBehaviour:
   sprites:
   - {fileID: 21300000, guid: 4d78cece310c30e40aa731aa55661f69, type: 3}
   - {fileID: 21300000, guid: c69da191880b97d41a694dff4d0ec537, type: 3}
-  - {fileID: 21300000, guid: b12f6ae4b1e5ee3428a297684d793a84, type: 3}
+  - {fileID: 21300000, guid: ee48de4cb1d159d4f87b001d8a5ad1fd, type: 3}
+  - {fileID: 21300000, guid: 84502ac39bc90114d91e1809efa303ad, type: 3}
   - {fileID: 21300000, guid: 843a10a5d0518d14a8403576ff99223c, type: 3}
+  - {fileID: 21300000, guid: 724d6a48fc7dfce47924ec776adc9b01, type: 3}
   - {fileID: 21300000, guid: c9da39742f5a9614190cda1e4b761a55, type: 3}
   - {fileID: 21300000, guid: 916e189da014f2d448ef32b5945a6b7c, type: 3}
 --- !u!1 &1704750270
