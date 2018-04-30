@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+	Class mainly makes sure that the rollin sound is played at the right time
+*/
 public class BallMovement : MonoBehaviour {
 
 	private Rigidbody2D ball;
@@ -9,11 +12,17 @@ public class BallMovement : MonoBehaviour {
 
 	public bool finished;
 
+	/*
+		Initialises data members
+	*/
 	void Start () {
 		ball = GetComponent<Rigidbody2D>();
 		audioManager = FindObjectOfType<AudioManager>();
 	}
 
+	/*
+		Uses instance of AudioManager to play/stop the rolling sounds
+	*/
 	void Update () {
 		if(finished){
 			ball.velocity = new Vector2(0f, 0f);

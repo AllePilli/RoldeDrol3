@@ -6,6 +6,11 @@ using UnityEngine.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
 
+/*
+	Class handles the movement of the player,
+	serial communication with Arduino
+	and the informative textchanges
+*/
 public class PlayerMovement : MonoBehaviour {
 
 	private Rigidbody2D playerBody;
@@ -17,17 +22,28 @@ public class PlayerMovement : MonoBehaviour {
 	private float finishTime;
 
 	[SerializeField]
+	/*
+		maxSpeed : the maximum speed the player can walk
+		resetTime : the amount of time, if the player is in idle, after wich the game resets
+	*/
 	private float maxSpeed, resetTime;
 
-	public bool finished, frozen, started;
+	public bool finished, frozen, started, serialClosed;
 	public float input;
 	public string arduinoInput, prevInput;
-	public bool serialClosed;
+
+	/*
+		Image used for informative text
+	*/
 	public Image image;
 
 	/*Met Arduino*/
 	private SerialPort sp;
+	/*-----------*/
 
+	/*
+		Instantiates all data members and opens serial connection
+	*/
 	void Start () {
 		sp = new SerialPort(readCOM(), 9600);
 
@@ -43,8 +59,13 @@ public class PlayerMovement : MonoBehaviour {
 		/*Met Arduino*/
 		sp.Open();
 		sp.ReadTimeout = 35;
+		/*-----------*/
 	}
 
+	/*
+		reads Arduino input, resets game if player goes idle and
+		handles state machine for the informative text changes
+	*/
 	void Update () {
 		/*Met Arduino*/
 		if(sp.IsOpen){
@@ -60,10 +81,15 @@ public class PlayerMovement : MonoBehaviour {
 
 		prevInput = arduinoInput;
 		HandleMovement(float.Parse(arduinoInput));
+		/*----------*/
 
+		/*Zonder Arduino*/
 		// float input = Input.GetAxis("Horizontal");
 		// HandleMovement(input);
+		/*--------------*/
 
+
+		//handles game reset if player goes idle
 		if(started && Comparison.TolerantEquals(playerBody.velocity.x, 0) && !finished){
 			timer.Update();
 
@@ -74,11 +100,13 @@ public class PlayerMovement : MonoBehaviour {
 			timer.Reset();
 		}
 
+		//changes text when the race started
 		if(frozen && firstTime){
 			firstTime = false;
 			Show(0);
 		}
 
+		//state machine for informative text changes
 		if(finished){
 			if(!Comparison.TolerantGreaterThanOrEquals(finishTime, 0.5f)){
 				finishTime = Time.time;
@@ -102,6 +130,10 @@ public class PlayerMovement : MonoBehaviour {
 		}
 	}
 
+	/*
+		param f: float between 0.0 and 1.0 representing a percentage of maxSpeed
+		uses a float to change the players velocity
+	*/
 	private void HandleMovement(float f){
 		if(!finished && !frozen){
 			if (f > 0) {
@@ -115,10 +147,18 @@ public class PlayerMovement : MonoBehaviour {
 		}
 	}
 
+	/*
+		param index: index of picture to be shown
+		switches the shown picture in image with the desired picture
+	*/
 	private void Show(int index){
 		image.GetComponent<ImageSwitch>().Show(index);
 	}
 
+	/*
+		reads the COM.txt file in the data folder to get the desired COM port
+		return : string representing the COM port
+	*/
 	private string readCOM(){
 		try{
 			StreamReader reader = new StreamReader(Application.dataPath + "/COM.txt");

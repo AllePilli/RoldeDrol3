@@ -2,6 +2,9 @@
 using UnityEngine;
 
 [System.Serializable]
+/*
+	Class that represents a sound
+*/
 public class Sound{
 
 	public string name;

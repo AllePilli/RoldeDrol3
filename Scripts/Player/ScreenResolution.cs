@@ -3,8 +3,15 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
+/*
+	Class makes sure the game resolution fits the screen resolutioni
+*/
 public class ScreenResolution : MonoBehaviour {
 
+	/*
+		Retrieves the desired screen resolution from an external file and
+		fits the game to this resolution
+	*/
 	void Awake () {
         string line = readResolution();
         string[] parts = line.Split(',');
@@ -12,6 +19,10 @@ public class ScreenResolution : MonoBehaviour {
         Screen.SetResolution(int.Parse(parts[0]), int.Parse(parts[1]), true);
 	}
 
+	/*
+		Reads the Resolution.txt file in the data folder
+		return : string representing the desired resolution
+	*/
     private string readResolution()
     {
         try

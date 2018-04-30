@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+	Class Manages the enemy movement
+*/
 public class EnemyMovement : MonoBehaviour {
 
 	public float minSpeed;
@@ -13,6 +16,9 @@ public class EnemyMovement : MonoBehaviour {
 	private Vector2 initialPosition;
 	private AudioManager audioManager;
 
+	/*
+		initialises data members
+	*/
 	void Start () {
 		enemyBody = GetComponent<Rigidbody2D>();
 		animator = GetComponent<Animator>();
@@ -21,6 +27,10 @@ public class EnemyMovement : MonoBehaviour {
 		initialPosition = enemyBody.position;
 	}
 
+	/*
+		Updates the enemy speed according to the players speed(always 15% quicker than player),
+		Forwards speed to the animator and plays the "finished" sound when race is over
+	*/
 	void Update () {
 		if(!finished && started){
 			float playerVel = player.velocity.x;

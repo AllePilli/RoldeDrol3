@@ -1,0 +1,5 @@
+Alle Mestkever sprites zijn afkomstig uit RoldeDrol 2.
+flag1 tot en met flag6 zijn afkomstig uit RoldeDrol 2.
+Alle Player sprites zijn afkomstig uit RoldeDrol 2.
+ball.png en PlayGround.psd zijn afkomstig uit RoldeDrol 2.
+BG.png is afkomstig uit https://www.gameart2d.com/free-platformer-game-tileset.html

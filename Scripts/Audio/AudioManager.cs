@@ -2,13 +2,19 @@
 using UnityEngine;
 using System;
 
+/*
+	Class manages all audio output
+*/
 public class AudioManager : MonoBehaviour {
 
 	public Sound[] sounds;
 	public static AudioManager instance;
 
+	/*
+		Initialises all sounds in the sounds array before the game starts
+	*/
 	void Awake () {
-		//zorgt ervoor dat er altijd maar 1 AudioManager is
+		//makes sure there is always 1 instance of AudioManager
 		if(instance == null){
 			instance = this;
 		}else{
@@ -25,11 +31,18 @@ public class AudioManager : MonoBehaviour {
 		}
 	}
 
+	/*
+		Plays starting sounds
+	*/
 	void Start(){
 		Play("AchtergrondMuziek");
 		Play("Welkom");
 	}
 
+	/*
+		param name: name of the sound to play
+		Plays a sound
+	*/
 	public void Play(string name){
 		Sound s = Array.Find(sounds, sound => sound.name == name);
 		if(s == null){
@@ -38,6 +51,10 @@ public class AudioManager : MonoBehaviour {
 		s.source.Play();
 	}
 
+	/*
+		param name: name of the sound to stop playing
+		Stops playing a sound
+	*/
 	public void Stop(string name){
 		Sound s = Array.Find(sounds, sound => sound.name == name);
 		if(s == null){
@@ -46,6 +63,11 @@ public class AudioManager : MonoBehaviour {
 		s.source.Stop();
 	}
 
+	/*
+		param name: name of sound in sounds array
+		Checks if a sound is currently being played
+		return : true if the sound is currently being played
+	*/
 	public bool IsPlaying(string name){
 		Sound s = Array.Find(sounds, sound => sound.name == name);
 		if(s == null){
