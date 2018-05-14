@@ -73,7 +73,7 @@ public class PlayerMovement : MonoBehaviour {
 		if(sp.IsOpen){
 			try {
 				arduinoInput = sp.ReadLine();
-				arduinoInput = (arduinoInput > 1.1) ? 1.1 : arduinoInput;
+				arduinoInput = (float.Parse(arduinoInput) > 1.1f) ? "1.1" : arduinoInput;
 			}catch (System.Exception) {
 				arduinoInput = prevInput;
 			}
@@ -146,7 +146,7 @@ public class PlayerMovement : MonoBehaviour {
 			if (f > 0) {
 				// Absolute maximum player speed = 7.7
 				float s = 1.40f * f * maxSpeed;
-				s = (s > 7.7f) ? 7.7f : s; 
+				s = (s > 7.7f) ? 7.7f : s;
 				playerBody.velocity = new Vector2(s, playerBody.velocity.y);
 			}
 
