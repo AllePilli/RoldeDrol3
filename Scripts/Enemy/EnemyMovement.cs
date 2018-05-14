@@ -28,7 +28,7 @@ public class EnemyMovement : MonoBehaviour {
 	}
 
 	/*
-		Updates the enemy speed according to the players speed(always 15% quicker than player),
+		Updates the enemy speed according to the players speed(always 1% quicker than player),
 		Forwards speed to the animator and plays the "finished" sound when race is over
 	*/
 	void Update () {
@@ -36,7 +36,7 @@ public class EnemyMovement : MonoBehaviour {
 			float playerVel = player.velocity.x;
 
 			if(playerVel > minSpeed){
-				enemyBody.velocity = new Vector2(playerVel * 1.15f, enemyBody.velocity.y);
+				enemyBody.velocity = new Vector2(playerVel * 1.01f, enemyBody.velocity.y);
 				animator.SetFloat("speed", Mathf.Abs(playerVel * 1.15f));
 			}else{
 				enemyBody.velocity = new Vector2(minSpeed, enemyBody.velocity.y);

@@ -73,6 +73,7 @@ public class PlayerMovement : MonoBehaviour {
 		if(sp.IsOpen){
 			try {
 				arduinoInput = sp.ReadLine();
+				arduinoInput = (arduinoInput > 1.1) ? 1.1 : arduinoInput;
 			}catch (System.Exception) {
 				arduinoInput = prevInput;
 			}
@@ -92,7 +93,7 @@ public class PlayerMovement : MonoBehaviour {
 
 
 		//handles game reset if player goes idle
-		if(started && Comparison.TolerantEquals(playerBody.velocity.x, 0) && !finished){
+		if(started && Comparison.TolerantLessThanOrEquals(playerBody.velocity.x, 0.05f) && !finished){
 			timer.Update();
 
 			if(timer.Done()){
@@ -143,7 +144,10 @@ public class PlayerMovement : MonoBehaviour {
 	private void HandleMovement(float f){
 		if(!finished && !frozen){
 			if (f > 0) {
-				playerBody.velocity = new Vector2(1.40f * f * maxSpeed, playerBody.velocity.y);
+				// Absolute maximum player speed = 7.7
+				float s = 1.40f * f * maxSpeed;
+				s = (s > 7.7f) ? 7.7f : s; 
+				playerBody.velocity = new Vector2(s, playerBody.velocity.y);
 			}
 
 			animator.SetFloat("speed", Mathf.Abs(f));

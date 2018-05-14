@@ -38,6 +38,9 @@ public class BallMovement : MonoBehaviour {
 					audioManager.Stop("PlayerRoll");
 				}
 			}
+
+			// Absolute maximum ball speed = maximum player speed = 7.7
+			ball.velocity.x = (ball.velocity.x > 7.7f) ? 7.7f : ball.velocity.x;
 		}else{
 			if(Mathf.Abs(ball.velocity.x) > 0.01){
 				if(!audioManager.IsPlaying("EnemyRoll")){
@@ -48,6 +51,9 @@ public class BallMovement : MonoBehaviour {
 					audioManager.Stop("EnemyRoll");
 				}
 			}
+
+			// Absolute maximum ball speed = maximum enemy speed = 7.78
+			ball.velocity.x = (ball.velocity.x > 7.78f) ? 7.78f : ball.velocity.x;
 		}
 	}
 }
